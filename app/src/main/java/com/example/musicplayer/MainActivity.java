@@ -23,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this,playButton.getText(),Toast.LENGTH_SHORT).show();
                 mp.start();
+                //use of asynchronous callback method which toasts a message when song is completed
+                mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        Toast.makeText(MainActivity.this,"I'm done",Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
         final Button pauseButton=(Button)findViewById(R.id.button2);
