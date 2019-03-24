@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
                         Toast.makeText(MainActivity.this,"I'm done",Toast.LENGTH_SHORT).show();
+                        releaseMediaPlayer();
                     }
                 });
             }
@@ -40,5 +41,19 @@ public class MainActivity extends AppCompatActivity {
                 mp.stop();
             }
         });
+    }
+
+    private void releaseMediaPlayer() {
+        // If the media player is not null, then it may be currently playing a sound.
+        if (mp != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mp.release();
+
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mp = null;
+        }
     }
 }
