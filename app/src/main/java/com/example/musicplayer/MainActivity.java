@@ -1,5 +1,4 @@
 package com.example.musicplayer;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
